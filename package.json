@@ -1,0 +1,79 @@
+{
+  "name": "alpine-nodejs-mongodb-tools",
+  "version": "0.1.0",
+  "description": "基于 alpine+nodejs+npm+git+mongodb-tools 的镜像",
+  "author": "CaoMeiYouRen",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "lint": "cross-env NODE_ENV=production eslint src --fix --ext .ts,.js",
+    "release": "semantic-release",
+    "build": "rimraf dist && tsc",
+    "dev": "ts-node-dev src/index.ts",
+    "rm": "rimraf node_modules",
+    "watch": "tsc -w",
+    "start": "npm run build && node ./dist/index",
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^15.0.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/debug": "^4.1.10",
+    "@types/node": "^20.8.8",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^3.0.0",
+    "conventional-changelog-cmyr-config": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-conventional-changelog-cmyr": "^1.0.0",
+    "debug": "^4.3.4",
+    "eslint": "^8.52.0",
+    "eslint-config-cmyr": "^1.1.30",
+    "eslint-plugin-import": "^2.28.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "rimraf": "^5.0.5",
+    "semantic-release": "^19.0.5",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-cmyr"
+    }
+  },
+  "changelog": {
+    "language": "zh"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/CaoMeiYouRen/alpine-nodejs-mongodb-tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaoMeiYouRen/alpine-nodejs-mongodb-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CaoMeiYouRen/alpine-nodejs-mongodb-tools/issues"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run lint",
+      "git add"
+    ]
+  }
+}
