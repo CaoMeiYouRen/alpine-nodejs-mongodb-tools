@@ -1,4 +1,4 @@
-FROM caomeiyouren/alpine-nodejs:latest
+FROM caomeiyouren/alpine-nodejs:1.1.0
 
 # 安装 mongodb-tools
 RUN apk update \
